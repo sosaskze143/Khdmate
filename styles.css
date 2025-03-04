@@ -1,3 +1,4 @@
+/* التصميم العام */
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
@@ -9,7 +10,7 @@ body {
   direction: rtl;
 }
 
-.login-container {
+.container {
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
@@ -94,4 +95,30 @@ button:hover {
 
 .register-link a:hover {
   text-decoration: underline;
+}
+
+/* تصميم الصفحة الرئيسية */
+.product {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  background-color: #fff;
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+}
+
+.product img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* تصميم صفحة الإدارة */
+#product-list {
+  margin-top: 20px;
+}
+
+/* تصميم صفحة سلة التسوق */
+#cart-items {
+  margin-top: 20px;
 }
