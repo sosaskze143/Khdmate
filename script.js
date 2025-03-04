@@ -111,3 +111,47 @@ function checkout() {
 if (window.location.pathname.includes('cart.html')) {
   window.onload = displayCart;
 }
+
+// بيانات المستخدمين (سيتم تخزينها في LocalStorage)
+let users = JSON.parse(localStorage.getItem('users')) || [];
+
+// تسجيل حساب جديد
+if (document.getElementById('register-form')) {
+  document.getElementById('register-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    // التحقق من عدم وجود حساب بنفس البريد الإلكتروني
+    const userExists = users.some(user => user.email === email);
+    if (userExists) {
+      alert('هذا البريد الإلكتروني مسجل مسبقًا!');
+      return;
+    }
+
+    // إضافة المستخدم الجديد
+    users.push({ name, email, password });
+    localStorage.setItem('users', JSON.stringify(users));
+    alert('تم تسجيل الحساب بنجاح!');
+    window.location.href = 'login.html';
+  });
+}
+
+// تسجيل الدخول
+if (document.getElementById('login-form')) {
+  document.getElementById('login-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    // البحث عن المستخدم
+    const user = users.find(user => user.email === email && user.password === password);
+    if (user) {
+      alert('تم تسجيل الدخول بنجاح!');
+      window.location.href = 'index.html';
+    } else {
+      alert('البريد الإلكتروني أو كلمة المرور غير صحيحة!');
+    }
+  });
+}
