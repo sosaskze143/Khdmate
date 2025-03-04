@@ -6,17 +6,26 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
+  <div class="login-container">
     <h1>تسجيل الدخول</h1>
     <form id="login-form">
-      <label for="email">البريد الإلكتروني:</label>
-      <input type="email" id="email" required>
-      <label for="password">كلمة المرور:</label>
-      <input type="password" id="password" required>
+      <div class="input-group">
+        <label for="email">البريد الإلكتروني:</label>
+        <input type="email" id="email" required>
+      </div>
+      <div class="input-group">
+        <label for="password">كلمة المرور:</label>
+        <input type="password" id="password" required>
+      </div>
+      <div class="options">
+        <label>
+          <input type="checkbox" id="remember-me"> تذكرني
+        </label>
+        <a href="#" class="forgot-password">نسيت كلمة المرور؟</a>
+      </div>
       <button type="submit">تسجيل الدخول</button>
     </form>
-    <p>ليس لديك حساب؟ <a href="register.html">تسجيل حساب جديد</a></p>
+    <p class="register-link">ليس لديك حساب؟ <a href="register.html">تسجيل حساب جديد</a></p>
   </div>
-  <script src="script.js"></script>
 </body>
 </html>
